@@ -2,18 +2,22 @@
 
 {% block head %}
     <title id="title">Recommendation System</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 {% endblock %}
 
 {% block body %}
     <h1>Movie Recommendation System</h1>
-    <div id="filter" >
-        <input type="text" name="searchbar" id="searchbar">
-        <label for="combobox">Search by</label>
-        <select name="combobox" id="combobox" size="1">
-            <option value="overview">Overview</option>
-            <option value="director">Director</option>
-            <option value="genre">Genre</option>
-          </select>
-          <input type="submit" value="Recommend" />
+    <div class="section1">
+        <div class="filter" >
+            <label for="combobox">Search by</label>
+            <select name="combobox" id="combobox" size="1">
+                <option value="null"></option>
+                <option value="overview">Overview</option>
+                <option value="director">Director</option>
+                <option value="genre">Genre</option>
+            </select><br>
+            <input type="submit" value="Recommend">
+        </div>
     </div>
 {% endblock %}

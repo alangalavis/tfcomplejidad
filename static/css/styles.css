@@ -1,30 +1,69 @@
+  :root {
+    --primary_color: #242A32;
+    --secondary_color: #FFFF;
+    --tertiary_color: #3A3F47;
+  }
+  
   body {
     font-family: calibri;
     margin: 0px;
-    background-color: #202324;
+    background-image: linear-gradient(to right , var(--primary_color) , var(--tertiary_color));
     overflow: hidden;
   }
 
   h1 {
-    color: white;
+    color: var(--secondary_color);
     text-align: center;
     padding: 2rem;
     font-size: 32px;
   }
 
-  #filter {
-    color: white;
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: normal;
+    display: inline-block;
+    word-wrap: normal;
+}
+  .section1 {
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    font-family: calibri;
+    font-size: 24px;
+  }
+
+  .section1 .filter {
+    color: var(--secondary_color);
+    
     display: flexbox;
     text-align: center;
     justify-content: center;
-    height: 100vh;
+   
   }
 
-  input {
+  .filter #combobox {
     font-family: calibri;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
+    font-size: 24px;
+    color: var(--secondary_color);
+    background-color: var(--primary_color);
+    border-radius: 0.3rem;
+    max-width: 100%;
+  }
+
+  .filter input {
+    font-family: calibri;
+    color: white;
+    font-size: 24px;
+    color: var(--secondary_color);
+    border: none;
+    background-color: var(--tertiary_color);
+    cursor: pointer;
+    max-width: 100%;
+  }
+
+  .filter input:hover {
+    color: rgba(255, 255, 255, 0.712);
   }
