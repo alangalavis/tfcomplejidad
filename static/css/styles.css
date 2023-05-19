@@ -1,0 +1,15 @@
+  body {
+    font-family: calibri;
+    margin: 0px;
+    background-color: #202324;
+    overflow: hidden;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+  }
+
+  #heading {
+    padding: 2rem;
+  }
