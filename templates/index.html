@@ -6,20 +6,42 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Movie Recommendation System</h1>
-    <div class="checkbox">
-        <input type="checkbox" id="checkbox_1">
-        <label for="checkbox_1">Director</label>
-
-        <input type="checkbox" id="checkbox_2">
-        <label for="checkbox_2">Overview</label>
-
-        <input type="checkbox" id="checkbox_3">
-        <label for="checkbox_3">Genre</label>
+    <div class="section0">
+        <div class="sectiontitle">
+            <h1>Movie Recommendation System</h1>
+            <h3>Enter a movie you like and the site will analyse the database to provide movie recommendations and suggestions for what to watch next.</h2>
+        </div>
     </div>
 
+    <div class="filter">
+        <div class="section1">
+            <h2>What do you want to watch?</h2>
+            <div class="search">
+                <form action="#"><input type="text" placeholder=" Type the name of a movie you like..." name="search"></form>
+            </div>
+        </div>
+ 
+        <div class="section2">
+            <h2>Recommend movies with similar...</h2>
+            <div class="checkbox">
+                
+                <input type="checkbox" id="checkbox_1" onclick="onlyOne(this)" name="check">
+                <label for="checkbox_1">Director</label>
 
-    
-      
+                <input type="checkbox" id="checkbox_2" onclick="onlyOne(this)" name="check">
+                <label for="checkbox_2">Genre</label>
+
+                <input type="checkbox" id="checkbox_3" onclick="onlyOne(this)" name="check">
+                <label for="checkbox_3">Overview</label>
+            </div>
+        </div>
+
+        <div class="section3">
+            <h2>.</h2>
+            <div class="send">
+                <button type="submit">Recommend</button>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
