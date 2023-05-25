@@ -3,52 +3,180 @@
     --secondary_color: #FFFF;
     --tertiary_color: #3A3F47;
     --quartenary_color: #FB9722;
+    --font_primary: Consolas;
   }
   
   body {
-    font-family: calibri;
+    font-family: var(--font_primary);
     margin: 0px;
-    background-image: linear-gradient(to right , var(--primary_color) , var(--tertiary_color));
+    background-color: var(--primary_color);
     overflow: hidden;
+    user-select: none;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
   }
 
   h1 {
     color: var(--secondary_color);
     text-align: center;
-    padding: 2rem;
-    font-size: 32px;
+    
   }
 
-.checkbox {
-  margin: auto;
-  width: 50%;
-  border: 3px solid green;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-}
+  h2 {
+    color: var(--secondary_color);
+    text-align: center;
+    font-weight: normal;
+  }
 
-.checkbox input[type="checkbox"] {
-    margin: 0;
-    opacity: 0;
-}
+  h3 {
+    color: var(--secondary_color);
+    text-align: center;
+    font-weight: normal;
+  }
 
-.checkbox input[type=checkbox] + label {
-  color: var(--secondary_color);
-  background-color: var(--tertiary_color);
-  font-weight: bold;
-  padding: 20px;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 0.6rem;
-  cursor: pointer;
-}
+  .sectiontitle {
+    padding: 2rem;
+    margin: auto;
+    width: 50%;
+    max-width: 100%;
 
-.checkbox input[type=checkbox]:checked + label {
-  background-color: var(--quartenary_color);
-  color: var(--primary_color);
-}
+  }
 
+  .section0 {
+    position: relative;
+  }
+  /*
+  .section0::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-image: url("https://static-prod.adweek.com/wp-content/uploads/2022/03/movie-theater-buys-back-2022-652x342.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+  }
+  */
+  
+  /*.sectiontitle, .section1, .section2, .section3 {
+    border: 3px solid green;
+  }*/
+
+  .filter {
+    background-color: var(--tertiary_color);
+    margin: 0 20% 0 20%;
+    border-radius: 1.6rem;
+  }
+
+  .search {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
+  .search input {
+    background-image: linear-gradient(to right , var(--tertiary_color) , #3a3f47f1);
+    max-width: 100%;
+  }
+
+  .search input[type=text]{
+    color: var(--secondary_color);
+    font-family: var(--font_primary);
+    font-size: 16px;
+
+    width: 40ch;
+    max-width: 100%;
+    min-height: 3rem;
+    border-radius:1.6rem;
+    border: none;
+  }
+
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.685);
+    opacity: 1;
+  }
+  
+  .checkbox {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .checkbox input[type="checkbox"] {
+      margin: 0;
+      opacity: 0;
+  }
+
+  .checkbox input[type=checkbox] + label {
+    color: var(--secondary_color);
+    background-color: var(--tertiary_color);
+    font-weight: bold;
+    padding: 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .checkbox input[type=checkbox]:checked + label {
+    background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+    color: var(--primary_color);
+  }
+
+  .checkbox input[type=checkbox]:hover + label {
+    background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+    
+  }
+
+  .send {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .send button {
+    color: var(--quartenary_color);
+    background-color: var(--primary_color);
+    border-color: var(--quartenary_color);
+    font-weight: bold;
+    padding: 20px;
+    font-family: var(--font_primary);
+    font-size: 16px;
+    text-align: center;
+
+    border-radius: 0.6rem;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .send button:active{
+    color: var(--primary_color);
+    background-color:var(--quartenary_color);
+  }
+
+  .send button:hover {
+    color: var(--primary_color);
+    background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+  }
 
