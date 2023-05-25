@@ -67,7 +67,6 @@
   }*/
 
   .filter {
-    background-color: var(--tertiary_color);
     margin: 0 20% 0 20%;
     border-radius: 1.6rem;
   }
