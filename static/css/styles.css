@@ -3,10 +3,10 @@
 ================================================*/
 
 :root {
-  --primary_color: #F3FBF9;
+  --primary_color: #e4f0ed;
   --secondary_color: #FFFF;
   --text_color: #374040;
-  --text_color_secondary: #677070;
+  --text_color_secondary: #5c6464;
   --inactive_color: #D9D9D9;
   --active_color: #35C1A5;
   --font_primary: Inter;
@@ -96,7 +96,7 @@ p {
 .right img {
   width: 100%;
   max-width: 465px;
-  border-radius: 2rem;
+  border-radius: 0.7rem;
 }
 
 /*================================================
@@ -184,6 +184,10 @@ label {
 1.4. Recommend
 ================================================*/
 
+.center {
+  text-align: center;
+}
+
 .recommend {
   cursor: pointer;
   overflow: hidden;
@@ -198,12 +202,12 @@ label {
 
 .send:active{
   color: var(--primary_color);
-  background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+  background-color: var(--active_color);
 }
 
 .recommend:hover {
   color: var(--primary_color);
-  background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+  background-color: var(--active_color);
 }
 
 
