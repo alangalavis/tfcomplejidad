@@ -1,31 +1,45 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title id="title">Recommendation System</title>
-
+<title id="title">Recommendation System</title>
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 {% endblock %}
 
 {% block body %}
-    
-    <div class="border title">
-        <h1>Movie Recommendation System</h1>
-        <h3 class="lighter">Enter a movie you like and the site will analyse the database to provide recommendations for what to watch next.</h3>
-    </div><br>
-    
-    <div class="line"></div>
+<div class="hero">
+    <section class="left">
+      <h1 class="separated">Movie Recommendation System</h1>
+      <p class="separated lighter">Enter a movie you like and the site will analyze the database to provide recommendations for what to watch next</p>
+    </section>
 
-    <div class="border">
-        <form action="#">
-            <div class="section">
-                <h2 class="lighter">What do you want to watch?</h2>
-                <div class="border center">
-                    <input type="text" placeholder=" Type the name of a movie you like..." name="search" required class="searchbar">
-                </div>
-            </div>
+    <section class="right">
+      <img class="separated shadow" src="https://qph.cf2.quoracdn.net/main-qimg-3b4f00765be511cb20048fb400a44439-lq" alt="Hero illustration"/>
+    </section>
+</div>
 
-            <div class="section">
-                <h2 class="lighter">Recommend movies with similar...</h2>
-                <div class="border center checkbox">
+<div class="program">
+    <form action="#">
+        <div class="filter">
+            <section class="left">
+                <h2 class="separated">What do you want to watch?</h2>
+                <p class="separated lighter">Type on the searchbar the name of a movie you like, the site will take that information as a starting point of reference</p>
+            </section>
+            
+            <section class="right">
+                <input class="searchbar separated" type="text" placeholder=" Type here" name="search" required>
+            </section>
+        </div>
+
+
+
+        <div class="filter">
+            <section class="left">
+                <h2 class="separated">Recommend movies with similar...</h2>
+                <p class="separated lighter">Select a filter of your interest</p>
+            </section>
+
+            <section class="right">
+                <div class="checkbox shadow separated">
                     <input type="checkbox" id="checkbox_1" onclick="onlyOne(this)" name="check" value="Director">
                     <label for="checkbox_1">Director</label>
 
@@ -35,21 +49,30 @@
                     <input type="checkbox" id="checkbox_3" onclick="onlyOne(this)" name="check" value="Overview">
                     <label for="checkbox_3">Overview</label>
                 </div>
-            </div>
+            </section>
+        </div>
 
-            <div class="section">
-                <h2 class="lighter">Select the number of recommendations you want</h2>
-                <div class="border center">
-                    <input type="number" min="1" max="15" placeholder="1" required class="amount">
-                </div>
+        <div class="filter">
+            <section class="left">
+                <h2 class="separated">Type the number of recommendations you want</h2>
+            </section>
+
+            <section class="right">
+                <input type="number" min="1" max="15" placeholder="1" required class="amount">
+            </section>
+        </div>
+        
+        <div class="filter">
+            <div class="">
+                <button type="submit" class="recommend">Recommend</button>
             </div>
-            
-            <div class="section">
-                <div class="border center">
-                    <button type="submit" class="recommend">Recommend</button>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+
+
+
+
+    </form>
+</div>
+
 
 {% endblock %}

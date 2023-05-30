@@ -3,12 +3,13 @@
 ================================================*/
 
 :root {
-  --primary_color: #242A32;
+  --primary_color: #F3FBF9;
   --secondary_color: #FFFF;
-  --tertiary_color: #3A3F47;
-  --quartenary_color: #FB9722;
-  --quintenary_color: rgb(54, 59, 61);
-  --font_primary: Consolas;
+  --text_color: #374040;
+  --text_color_secondary: #677070;
+  --inactive_color: #D9D9D9;
+  --active_color: #35C1A5;
+  --font_primary: Inter;
 }
 
 *,
@@ -18,11 +19,9 @@
 }
 
 body {
-  font-size: 1.25rem;
   font-family: var(--font_primary);
-  text-align: center;
-  overflow: hidden;
-  color: var(--secondary_color);
+  font-weight: bold;
+  color: var(--text_color);
   background-color: var(--primary_color);
   user-select: none;
   overflow-y: scroll;
@@ -36,93 +35,130 @@ button {
 }
 
 .border {
-  /*border: 3px solid green;*/
-}
-
-.center {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  border: 3px solid green;
 }
 
 .lighter {
   font-weight: lighter;
 }
 
-.section {
-  padding: 30px 0 30px 0;
+.separated {
+  margin: 24px 0;
+}
+
+.shadow {
+  filter: drop-shadow(0 0.3rem 1mm rgb(165, 165, 165));
+}
+
+.hero, .filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  display: flex;
+  align-items: start;
+}
+
+.program, .hero {
+  padding: 50px 200px 50px 200px;
+}
+
+p {
+  color: var(--text_color_secondary);
 }
 
 /*================================================
 1. What do you want to watch?
 ================================================*/
 
-.title {
-  color: var(--secondary_color);
-  background-color: var(--quintenary_color);
-  padding: 120px;
+.hero {
+  background-color: var(--secondary_color);
 }
 
-.line {
-  border-bottom-width: 2px;
+.hero section {
+  flex: 1;
+}
+
+.left h1 {
+  font-size: 3.5rem;
+}
+
+.left p {
+  font-size: 1.125rem;
+}
+
+.left, .right {
+  padding: 0 2rem;
+}
+
+.right img {
   width: 100%;
-  margin-top: 2rem;
+  max-width: 465px;
+  border-radius: 2rem;
 }
 
 /*================================================
 1.1. Type the name of a movie you like...
 ================================================*/
 
+.filter h2 {
+  font-size: 2.5rem;
+}
+.filter section {
+  flex: 1;
+}
+
 .searchbar {
-  color: var(--secondary_color);
-  background-image: linear-gradient(to right , var(--tertiary_color) , #3a3f47f1);
+  color: var(--text_color);
+  background-color: var(--inactive_color);
   width: 100%;
+  max-width: 465px;
   display: block;
   box-sizing: border-box;
-  max-width: 500px;
   padding: 1rem;
   border: 0;
   border-radius: 1.6rem;
-}
-
-::placeholder .searchbar {
-  color: rgba(255, 255, 255, 0.685);
-  opacity: 1;
 }
 
 /*================================================
 1.2. Recommend movies with similar...
 ================================================*/
 
+.checkbox {
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
 .checkbox input[type="checkbox"] {
-  margin: 0;
-  /*opacity: 0;*/
+  margin: 0 ;
   transform: scale(0);
+  
 }
 
 .checkbox input[type=checkbox] + 
 label {
   cursor: pointer;
   overflow: hidden;
-  color: var(--secondary_color);
-  background-image: linear-gradient(to right , var(--tertiary_color) , #3a3f47f1);
+  color: var(--text_color);
+  background-color: var(--inactive_color);
   width: fit-content;
   max-width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0.6rem;
 }
 
 .checkbox input[type=checkbox]:checked + 
 label {
-  color: var(--primary_color);
-  background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+  background-color: var(--active_color);
 }
 
 .checkbox input[type=checkbox]:hover + 
 label {
-  background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
+  color: var(--secondary_color);
+  background-color: var(--active_color);
+
 }
 
 /*================================================
@@ -130,12 +166,13 @@ label {
 ================================================*/
 
 .amount {
-  color: var(--secondary_color);
-  background-image: linear-gradient(to right , var(--tertiary_color) , #3a3f47f1);
+  color: var(--text_color);
+  background-color: var(--inactive_color);
   max-width: 100%;
   min-height: 3rem;
   border: 0;
-  border-radius: 0.6rem;
+  border-radius: 1.6rem;
+  text-align: center;
 }
 
 ::placeholder .amount {
@@ -151,7 +188,7 @@ label {
   cursor: pointer;
   overflow: hidden;
   color: var(--quartenary_color);
-  border-color: var(--quartenary_color);
+  border-color: var(--active_color);
   background-color: var(--primary_color);
   width: fit-content;
   max-width: 100%;
@@ -169,12 +206,49 @@ label {
   background-image: linear-gradient(to top , var(--quartenary_color) , #fca644);
 }
 
+
 /*================================================
 2. Media queries
 ================================================*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
+
   body {
-    margin: 0;
+    padding: 0;
   }
+
+  .hero, .filter {
+    flex-direction: column;  
+    text-align: center; 
+  }
+
+  .hero, .left, .right, .filter {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    word-wrap: break-word;
+  }
+
+  .program {
+    padding: 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .filter h2 {
+    font-size: 26px;
+  }
+
+  .filter p {
+    font-size: 17.6px;
+  }
+
+/*
+  .hero .right {
+    display: none;
+  }
+  */
 }
