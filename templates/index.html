@@ -6,20 +6,24 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="hero">
     <section class="left">
-      <h1 class="separated">Movie Recommendation System</h1>
-      <p class="separated lighter">Enter a movie you like and the site will analyze the database to provide recommendations for what to watch next</p>
+        <h1 class="separated">Movie Recommendation System</h1>
+        <p class="separated lighter">Enter a movie you like and the site will analyze the database to provide recommendations for what to watch next</p>
+        <div class="separated">
+            <button type="button" class="recommend shadow float-on-hover lighter"  onclick=" window.open('https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata','_blank')">See the database</button>
+        </div>
     </section>
 
     <section class="right">
-      <img class="separated shadow" src="https://qph.cf2.quoracdn.net/main-qimg-3b4f00765be511cb20048fb400a44439-lq" alt="Hero illustration"/>
+        <img class="separated shadow" src="https://qph.cf2.quoracdn.net/main-qimg-3b4f00765be511cb20048fb400a44439-lq" alt="Hero illustration"/>
     </section>
 </div>
 
 <div class="program">
     <form action="#">
-        <div class="filter">
+        <div class="filter new_section">
             <section class="left">
                 <h2 class="separated">What do you want to watch?</h2>
                 <p class="separated lighter">Type on the searchbar the name of a movie you like, the site will take that information as a starting point of reference</p>
@@ -30,9 +34,7 @@
             </section>
         </div>
 
-
-
-        <div class="filter">
+        <div class="filter new_section">
             <section class="left">
                 <h2 class="separated">Recommend movies with similar...</h2>
                 <p class="separated lighter">Select a filter of your interest</p>
@@ -52,10 +54,10 @@
             </section>
         </div>
 
-        <div class="filter">
+        <div class="filter new_section">
             <section class="left">
-                <h2 class="separated">Type the number of recommendations you want</h2>
-                <p class="separated lighter">Type between 1 and 15 recommendations</p>
+                <h2 class="separated">Adjust the number of recommendations</h2>
+                <p class="separated lighter">Type on the searchbar a number to get between 1 and 15 recommendations</p>
             </section>
 
             <section class="right">
@@ -65,7 +67,7 @@
         
         <div class="center">
             <div class="separated">
-                <button type="submit" class="recommend shadow">Recommend</button>
+                <button type="submit" class="recommend shadow float-on-hover lighter">Recommend</button>
             </div>
         </div>
 

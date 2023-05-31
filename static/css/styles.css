@@ -8,7 +8,7 @@
   --text_color: #374040;
   --text_color_secondary: #5c6464;
   --inactive_color: #D9D9D9;
-  --active_color: #35C1A5;
+  --active_color: #2F9D81;
   --font_primary: Inter;
 }
 
@@ -22,7 +22,7 @@ body {
   font-family: var(--font_primary);
   font-weight: bold;
   color: var(--text_color);
-  background-color: var(--primary_color);
+  background-color: var(--secondary_color);
   user-select: none;
   overflow-y: scroll;
   margin: 0;
@@ -46,6 +46,10 @@ button {
   margin: 24px 0;
 }
 
+.new_section {
+  margin-bottom: 48px;
+}
+
 .shadow {
   filter: drop-shadow(0 0.3rem 1mm rgb(165, 165, 165));
 }
@@ -62,7 +66,7 @@ button {
 }
 
 .program, .hero {
-  padding: 50px 200px 50px 200px;
+  padding: 50px 200px;
 }
 
 p {
@@ -70,11 +74,20 @@ p {
 }
 
 /*================================================
-1. What do you want to watch?
+
+1. Header
+
+================================================*/
+
+
+
+/*================================================
+2. What do you want to watch?
 ================================================*/
 
 .hero {
-  background-color: var(--secondary_color);
+  background-color: var(--primary_color);
+  flex-wrap: wrap;
 }
 
 .hero section {
@@ -95,12 +108,13 @@ p {
 
 .right img {
   width: 100%;
-  max-width: 465px;
+  max-width: 100%;
+  min-width: 465px;
   border-radius: 0.7rem;
 }
 
 /*================================================
-1.1. Type the name of a movie you like...
+2.1. Type the name of a movie you like...
 ================================================*/
 
 .filter h2 {
@@ -123,7 +137,7 @@ p {
 }
 
 /*================================================
-1.2. Recommend movies with similar...
+2.2. Recommend movies with similar...
 ================================================*/
 
 .checkbox {
@@ -145,7 +159,7 @@ label {
   background-color: var(--inactive_color);
   width: fit-content;
   max-width: 100%;
-  padding: 1.5rem;
+  padding: 2.5rem;
   border-radius: 0.6rem;
 }
 
@@ -162,7 +176,7 @@ label {
 }
 
 /*================================================
-1.3. Select the number of recommendations you want
+2.3. Select the number of recommendations you want
 ================================================*/
 
 .amount {
@@ -181,7 +195,7 @@ label {
 }
 
 /*================================================
-1.4. Recommend
+2.4. Recommend
 ================================================*/
 
 .center {
@@ -191,28 +205,43 @@ label {
 .recommend {
   cursor: pointer;
   overflow: hidden;
-  color: var(--quartenary_color);
+  color: var(--secondary_color);
   border-color: var(--active_color);
-  background-color: var(--primary_color);
-  width: fit-content;
+  background-color: var(--active_color);
+  width: 25%;
   max-width: 100%;
   padding: 1rem;
   border-radius: 0.6rem;
+  border: 0;
 }
 
 .send:active{
-  color: var(--primary_color);
+  color: var(--secondary_color);
   background-color: var(--active_color);
 }
 
 .recommend:hover {
-  color: var(--primary_color);
-  background-color: var(--active_color);
+  color: var(--secondary_color);
+  background-color: #2f997e;
 }
 
+.float-on-hover {
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+
+.float-on-hover:hover, .float-on-hover:focus, .float-on-hover:active {
+  transform: translateY(-3px);
+}
 
 /*================================================
-2. Media queries
+3. Media queries
 ================================================*/
 
 @media screen and (max-width: 1000px) {
@@ -248,6 +277,15 @@ label {
 
   .filter p {
     font-size: 17.6px;
+  }
+
+  .checkbox input[type=checkbox] + 
+  label {
+  padding: 1.5rem;
+  }
+
+  .recommend {
+    width: 75%;
   }
 
 /*
