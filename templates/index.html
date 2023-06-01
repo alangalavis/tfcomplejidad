@@ -22,18 +22,21 @@
 </div>
 
 <div class="program">
-    <form action="#">
+
+    <form method="post">
+        <!-- 1.1. Type the name of a movie to take as a reference -->
         <div class="filter new_section">
             <section class="left">
                 <h2 class="separated">What do you want to watch?</h2>
                 <p class="separated lighter">Type on the searchbar the name of a movie you like, the site will take that information as a starting point of reference</p>
             </section>
-            
+
             <section class="right">
-                <input class="searchbar separated" type="text" placeholder=" Type here" name="search" required>
+                <input class="searchbar separated" type="text" name="movieref" placeholder=" Type here" required>
             </section>
         </div>
 
+        <!-- 1.2. Filter movies by-->
         <div class="filter new_section">
             <section class="left">
                 <h2 class="separated">Recommend movies with similar...</h2>
@@ -42,18 +45,19 @@
 
             <section class="right">
                 <div class="checkbox shadow separated">
-                    <input type="checkbox" id="checkbox_1" onclick="onlyOne(this)" name="check" value="Director">
+                    <input type="checkbox" onclick="onlyOne(this)" id="checkbox_1" name="check" value="director">
                     <label for="checkbox_1">Director</label>
 
-                    <input type="checkbox" id="checkbox_2" onclick="onlyOne(this)" name="check" value="Genre">
+                    <input type="checkbox" onclick="onlyOne(this)" id="checkbox_2" name="check" value="genre">
                     <label for="checkbox_2">Genre</label>
 
-                    <input type="checkbox" id="checkbox_3" onclick="onlyOne(this)" name="check" value="Overview">
+                    <input type="checkbox" onclick="onlyOne(this)" id="checkbox_3" name="check" value="overview">
                     <label for="checkbox_3">Overview</label>
                 </div>
             </section>
         </div>
 
+        <!-- 1.3. Adjust the number of recommendations-->
         <div class="filter new_section">
             <section class="left">
                 <h2 class="separated">Adjust the number of recommendations</h2>
@@ -61,19 +65,17 @@
             </section>
 
             <section class="right">
-                <input type="number" min="1" max="15" placeholder="1" required class="amount separated">
+                <input class="amount separated" type="number" name="recamount" min="1" max="15" placeholder="1" required>
             </section>
         </div>
-        
+
+        <!-- 1.4. Submit-->
         <div class="center">
             <div class="separated">
                 <button type="submit" class="recommend shadow float-on-hover lighter">Recommend</button>
             </div>
         </div>
-
-
-
-
+        
     </form>
 </div>
 
