@@ -6,14 +6,14 @@
 
 {% block body %}
 <div class="program">
-    <div class="filter new_section">
+    <div class="filter">
         <section class="center">
-            <h2 class="separated">Movie taken as reference:</h2>
+            <h2 class="separated">Movie taken as a reference:</h2>
             <p class="separated lighter">{{movieRefName}}</p>
         </section>
     </div>
 
-    <div class="filter new_section">
+    <div class="filter">
         <section class="center">
             <h2 class="separated">Showing movies with similar:</h2>
             <p class="separated lighter">{{movieFilter}}</p>
@@ -26,4 +26,11 @@
             <p class="separated lighter">{{movieRecAmount}}</p>
         </section>
     </div>
+    <div class="filter">
+        <section class="center">
+            <h1 class="separated">Recommended movies:</h2>
+            <p class="separated lighter">{{recommendation_list}}</p>
+        </section>
+    </div>
+</div>
 {% endblock %}

@@ -1,5 +1,3 @@
-import pandas as pd
-import math
 import csv
 
 def return_weight(e):
@@ -25,7 +23,7 @@ def dls(G, s, L, qty): #añadir parametro
   n = len(G)
   visited = [False]*n
   path = [None]*n
-  cost = [math.inf]*n
+  cost = [float('inf')]*n
   lista = []
   #Verificar si el número es mayor que los presentes en la lista y si es append, al final ordeno
   
@@ -67,9 +65,24 @@ def show_movies_titles(lista1, lista2):
     
 G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
 
-def overview_recomendation(index, qty, peliculas_lista):
+def overview_recomendation(index, qty, movie_dataset):
     if index != -1:
-        path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
-  #print(lista) 
-        show_movies_titles(lista, peliculas_lista)
+        show_movies_titles(lista, movie_dataset)
+        return lista
+
+
+def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmount, movie_dataset):
+  try:
+    index = movie_dataset.index(movieReference)
+  except:
+    index = -1
+    return "Error, movie not found in the dataset"
+  
+  if movieSelectedFilter == "company":
+    return -1
+  elif movieSelectedFilter == "genre":
+    return -1
+  elif movieSelectedFilter == "overview":
+    return overview_recomendation(index, movieRecommendationAmount, movie_dataset)
