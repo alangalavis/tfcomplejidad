@@ -59,9 +59,11 @@ def createGraphFromCSV(csv_file):
 
     return graph
 
-def show_movies_titles(lista1, lista2):
+def return_movies_titles(lista1, lista2):
+  lista = []
   for i in lista1:
-    print(lista2[i[0]])
+    lista.append(lista2[i[0]])
+  return lista
     
 G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
 
@@ -69,8 +71,8 @@ def overview_recomendation(index, qty, peliculas_lista):
     if index != -1:
         path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
-        show_movies_titles(lista, peliculas_lista)
-        return lista
+        movies_list = return_movies_titles(lista, peliculas_lista)
+        return movies_list
 
 
 def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmount, movie_dataset):
