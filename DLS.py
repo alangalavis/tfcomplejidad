@@ -65,11 +65,11 @@ def show_movies_titles(lista1, lista2):
     
 G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
 
-def overview_recomendation(index, qty, movie_dataset):
+def overview_recomendation(index, qty, peliculas_lista):
     if index != -1:
-        lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
-        show_movies_titles(lista, movie_dataset)
+        show_movies_titles(lista, peliculas_lista)
         return lista
 
 
