@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>output</title>
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+{% endblock %}
+
+{% block body %}
+<div class="program">
+    <div class="filter new_section">
+        <section class="center">
+            <h2 class="separated">Movie taken as reference:</h2>
+            <p class="separated lighter">{{movieRefName}}</p>
+        </section>
+    </div>
+
+    <div class="filter new_section">
+        <section class="center">
+            <h2 class="separated">Showing movies with similar:</h2>
+            <p class="separated lighter">{{movieFilter}}</p>
+        </section>
+    </div>
+
+    <div class="filter new_section">
+        <section class="center">
+            <h2 class="separated">Number of recommendations shown:</h2>
+            <p class="separated lighter">{{movieRecAmount}}</p>
+        </section>
+    </div>
+{% endblock %}
