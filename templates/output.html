@@ -5,37 +5,31 @@
 {% endblock %}
 
 {% block body %}
+
+<header>
+    <div class="header-box">
+        <div class="logo">
+            <a href="/">
+                <img src="{{url_for('static', filename='images/logo.png')}}" alt="Logo">
+                <h3>Movie Recommendation System</h3>
+            </a>
+        </div>
+    </div>
+  </header>
+
+<div class="hero">
+    <div class="filter">
+            <h2 class="separated">Here's a list of {{movieRecAmount}} movies that share similar {{movieFilter}} with {{movieRefName}}</h2>
+    </div>
+</div>
 <div class="program">
     <div class="filter">
         <section class="center">
-            <h2 class="separated">Movie taken as a reference:</h2>
-            <p class="separated lighter">{{movieRefName}}</p>
+            {% for row in recommendation_list %}
+                <p class="separated lighter">{{row}}</p>
+            {% endfor %}
         </section>
     </div>
-
-    <div class="filter">
-        <section class="center">
-            <h2 class="separated">Showing movies with similar:</h2>
-            <p class="separated lighter">{{movieFilter}}</p>
-        </section>
-    </div>
-
-    <div class="filter new_section">
-        <section class="center">
-            <h2 class="separated">Number of recommendations shown:</h2>
-            <p class="separated lighter">{{movieRecAmount}}</p>
-        </section>
-    </div>
-    <div class="filter">
-        <section class="center">
-            <h1 class="separated">Recommended movies:</h2>
-            <p class="separated lighter">{{recommendation_list}}</p>
-        </section>
-    </div>
-
-    <div class="filter new_section">
-
-    </div>
-
 </div>
+
 {% endblock %}

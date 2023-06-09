@@ -16,7 +16,6 @@ def index():
         formData['movieReference'] = request.form['movieref']
         formData['movieSelectedFilter'] = request.form['check']
         formData['movieRecommendationAmount'] = int(request.form['recamount'])
-
         return redirect(url_for('output'))
     
     else:
@@ -28,7 +27,7 @@ def output():
     return render_template('output.html', movieRefName = formData['movieReference'], 
                            movieFilter = formData['movieSelectedFilter'],
                            movieRecAmount = formData['movieRecommendationAmount'],
-                           recommendation_list = str(result))
+                           recommendation_list = result)
 
 if __name__ == '__main__':
     app.run(debug=True)

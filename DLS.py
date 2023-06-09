@@ -101,7 +101,7 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
     index = movie_dataset.index(movieReference)
   except:
     index = -1
-    return "Error, movie not found in the dataset"
+    return ["Error, movie not found in the dataset"]
   
   if movieSelectedFilter == "studio":
     return PC_recomendation(index, movieRecommendationAmount, movie_dataset)
