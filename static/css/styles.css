@@ -3,12 +3,13 @@
 ================================================*/
 
 :root {
-  --primary_color: #e4f0ed;
+  --primary_color: #E4ECEE;
   --secondary_color: #FFFF;
   --text_color: #374040;
   --text_color_secondary: #5c6464;
   --inactive_color: #D9D9D9;
-  --active_color: #2F9D81;
+  --active_color: #1F485A;
+  --active_color_accent: #183846;
   --font_primary: Inter;
 }
 
@@ -68,6 +69,57 @@ p {
   color: var(--text_color_secondary);
 }
 
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--secondary_color);
+  z-index: 1000;
+  overflow: hidden;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
+  text-align:center;
+}
+
+/*Container with zero padding */
+.header-box {
+  display: flex;
+  padding: 50px;
+  flex-wrap: wrap;
+  -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    -ms-transition: padding 0.3s;
+    -o-transition: padding 0.3s;
+    transition: padding 0.3s;
+}
+
+.header-box section {
+  flex: 1;
+}
+
+.smaller {
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo a {
+  padding: 0;
+  margin: 0 5px;
+  color: var(--text_color);
+  text-decoration: none;
+}
+
+.logo img {
+
+  max-width: 100%;
+}
+
 /*================================================
 1. What do you want to watch?
 ================================================*/
@@ -88,6 +140,7 @@ p {
 }
 
 .hero {
+  padding-top: 200px;
   background-color: var(--primary_color);
   flex-wrap: wrap;
 }
@@ -106,7 +159,6 @@ p {
   min-width: 465px;
   border-radius: 0.7rem;
 }
-
 
 /*================================================
 1.1. Type the name of a movie to take as a reference
@@ -135,12 +187,7 @@ p {
 .checkbox {
   overflow: hidden;
   flex-wrap: wrap;
-}
-
-.checkbox input[type="checkbox"] {
-  margin: 0 ;
-  transform: scale(0);
-  
+  margin: 0;
 }
 
 .checkbox input[type=checkbox] + 
@@ -152,11 +199,19 @@ label {
   width: fit-content;
   max-width: 100%;
   padding: 2.5rem;
+  margin: 10px;
   border-radius: 0.6rem;
+}
+
+.checkbox input[type=checkbox] {
+  margin: 0;
+  transform: scale(0);
+  position: absolute;
 }
 
 .checkbox input[type=checkbox]:checked + 
 label {
+  color: var(--secondary_color);
   background-color: var(--active_color);
 }
 
@@ -177,6 +232,7 @@ label {
   max-width: 100%;
   min-height: 3rem;
   border: 0;
+  padding: 0 2.5rem;
   border-radius: 1.6rem;
   text-align: center;
 }
@@ -214,7 +270,7 @@ label {
 
 .recommend:hover {
   color: var(--secondary_color);
-  background-color: #2f997e;
+  background-color: var( --active_color_accent);
 }
 
 .float-on-hover {
@@ -238,6 +294,12 @@ label {
 
 @media screen and (max-width: 1000px) {
 
+  header {
+    position: relative;
+    display: none;
+    visibility: hidden;
+  }
+  
   body {
     padding: 0;
   }
@@ -255,8 +317,13 @@ label {
     word-wrap: break-word;
   }
 
+  .right img {
+    display: none;
+  }
+
   .program {
     padding: 0;
+    margin-top: 48px;
   }
 
   .hero h1 {
@@ -274,15 +341,19 @@ label {
   .checkbox input[type=checkbox] + 
   label {
   padding: 1.5rem;
+  margin: auto;
+  margin-bottom: 9px;
   }
+
+.checkbox input[type=checkbox] {
+  position: relative;
+}
 
   .recommend {
     width: 75%;
   }
 
-/*
   .hero .right {
     display: none;
   }
-  */
 }

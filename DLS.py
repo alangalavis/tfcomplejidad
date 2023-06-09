@@ -72,6 +72,7 @@ def overview_recomendation(index, qty, peliculas_lista):
         path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
         movies_list = return_movies_titles(lista, peliculas_lista)
+        print(movies_list[0])
         return movies_list
 
 
@@ -82,7 +83,7 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
     index = -1
     return "Error, movie not found in the dataset"
   
-  if movieSelectedFilter == "company":
+  if movieSelectedFilter == "studio":
     return -1
   elif movieSelectedFilter == "genre":
     return -1
