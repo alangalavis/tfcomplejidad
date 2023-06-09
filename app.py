@@ -1,13 +1,13 @@
 from flask import Flask, render_template, url_for, request, redirect
 import DLS
-import overview_weights
+import generate_weights
 
 formData = {}
 
 app = Flask(__name__)
 
-overview_weights.generate_overview()
-df_movies = overview_weights.pd.read_csv('Amdb_5000_movies.csv')
+generate_weights.generar_csvs()
+df_movies = generate_weights.pd.read_csv('Amdb_5000_movies.csv')
 movie_dataset = df_movies['original_title'].astype(str).tolist()
 
 @app.route('/', methods = ['POST', 'GET'])

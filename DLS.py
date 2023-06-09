@@ -1,4 +1,5 @@
 import csv
+import os.path
 
 def return_weight(e):
   return e[1]
@@ -64,17 +65,36 @@ def return_movies_titles(lista1, lista2):
   for i in lista1:
     lista.append(lista2[i[0]])
   return lista
-    
-G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
+
+if os.path.exists("edges_list_overview.csv") is True:    
+  G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
+  
+if os.path.exists("genres_list.csv") is True:    
+  G_genre = createGraphFromCSV("genres_list.csv") #validar esto
+
+if os.path.exists("PC_list.csv") is True:    
+  G_studio = createGraphFromCSV("PC_list.csv") #validar esto
 
 def overview_recomendation(index, qty, peliculas_lista):
     if index != -1:
         path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
         movies_list = return_movies_titles(lista, peliculas_lista)
-        print(movies_list[0])
         return movies_list
 
+def genre_recomendation(index, qty, peliculas_lista):
+    if index != -1:
+        path, lista = dls(G_genre, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        lista.sort(key=return_weight, reverse=True)
+        movies_list = return_movies_titles(lista, peliculas_lista)
+        return movies_list
+
+def PC_recomendation(index, qty, peliculas_lista):
+    if index != -1:
+        path, lista = dls(G_studio, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        lista.sort(key=return_weight, reverse=True)
+        movies_list = return_movies_titles(lista, peliculas_lista)
+        return movies_list
 
 def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmount, movie_dataset):
   try:
@@ -84,8 +104,8 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
     return "Error, movie not found in the dataset"
   
   if movieSelectedFilter == "studio":
-    return -1
+    return PC_recomendation(index, movieRecommendationAmount, movie_dataset)
   elif movieSelectedFilter == "genre":
-    return -1
+    return genre_recomendation(index, movieRecommendationAmount, movie_dataset)
   elif movieSelectedFilter == "overview":
     return overview_recomendation(index, movieRecommendationAmount, movie_dataset)
