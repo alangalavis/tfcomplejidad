@@ -20,15 +20,19 @@
             <h2 class="separated">Here's a list of {{movieRecAmount}} movies that share similar {{movieFilter}} with {{movieRefName}}</h2>
     </div>
 </div>
+
 <div class="program">
-    <div class="filter">
-        <section class="center">
-            {% for movie in recommendation_list %}
-                <h2 class="separated lighter">{{movie}}</h2>
-                <img class="separated" src="{{poster_list[loop.index0]}}">
-            {% endfor %}
-        </section>
+    {% for movie in recommendation_list %}
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{poster_list[loop.index0]}}">
+            <img class="shadow" src="{{poster_list[loop.index0]}}" alt="Movie poster" width="250" height="375">
+          </a>
+          <div class="desc separated"><h3 class="lighter">{{movie}}</h3></div>
+        </div>
     </div>
+    {% endfor %}      
 </div>
+
 
 {% endblock %}
