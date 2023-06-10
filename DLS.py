@@ -13,6 +13,8 @@ def compare_weight(e, a):
 def addValue(lista, n, qty):
   if len(lista) < qty:
     lista.append(n)
+    lista = set(lista)
+    lista = list(lista)
   tmp = min(lista, key=return_weight)
   index = lista.index(tmp)
   if compare_weight(n, tmp) and len(lista) >= qty:

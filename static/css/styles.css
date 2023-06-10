@@ -75,6 +75,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  color: var(--active_color);
   background: var(--secondary_color);
   z-index: 1000;
   overflow: hidden;
@@ -110,6 +111,7 @@ header {
 }
 
 .logo a {
+  font-size: 1.4rem;
   padding: 0;
   margin: 0 5px;
   color: inherit;
@@ -125,6 +127,10 @@ header {
   height: 75px;
 }
 
+.center img {
+  width: 15%;
+  height: 15%;
+}
 
 /*================================================
 1. What do you want to watch?

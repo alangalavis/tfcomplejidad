@@ -23,8 +23,9 @@
 <div class="program">
     <div class="filter">
         <section class="center">
-            {% for row in recommendation_list %}
-                <p class="separated lighter">{{row}}</p>
+            {% for movie in recommendation_list %}
+                <h2 class="separated lighter">{{movie}}</h2>
+                <img class="separated" src="{{poster_list[loop.index0]}}">
             {% endfor %}
         </section>
     </div>
