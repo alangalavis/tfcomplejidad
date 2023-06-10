@@ -9,12 +9,12 @@ formData = {}
 app = Flask(__name__)
 
 generate_weights.generar_csvs()
-df_movies = generate_weights.pd.read_csv('Amdb_5000_movies.csv')
+df_movies = pd.read_csv('Amdb_5000_movies.csv')
 movie_dataset = df_movies['original_title'].astype(str).tolist()
 movie_dataset_minusculas = [x.lower() for x in movie_dataset]
 
 #para los posters
-df_posters = pd.read_csv('tmdb_5000_movies.csv')
+df_posters = pd.read_csv('pmdb_5000_movies.csv')
 
 movie_name = df_posters['original_title'].astype(str).tolist()
 id_dataset = df_posters['id'].astype(int).tolist()

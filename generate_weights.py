@@ -6,6 +6,7 @@ import csv
 import ast
 import os.path
 
+rango = 4449
 df_movies = pd.read_csv('Amdb_5000_movies.csv')
 
 #Overview
@@ -46,7 +47,7 @@ def get_recomendations_overview():
     writer = csv.writer(file)
     
     writer.writerow(headers)
-    for i in range(4801):
+    for i in range(4449):
         liston = generate_overview_recomendations(i)
         writer.writerows(liston)
     file.close()
@@ -106,7 +107,7 @@ def get_recomendations_genre():
 
     writer2.writerow(headers)
 
-    for i in range(4801):
+    for i in range(4449):
         liston2 = generate_genre_recomendations(i, codigos_genero)
         writer2.writerows(liston2)
     file2.close()
@@ -164,7 +165,7 @@ def get_recomendations_PC():
 
     writer3.writerow(headers)
 
-    for i in range(4801):
+    for i in range(4449):
         liston3 = generate_PC_recomendations(i, codigos_PC)
         writer3.writerows(liston3)
     file3.close()
