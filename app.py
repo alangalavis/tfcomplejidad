@@ -55,15 +55,10 @@ def output():
     result = DLS.filter_selector(movie_minus, formData['movieSelectedFilter'], formData['movieRecommendationAmount'], movie_dataset_minusculas)
     movie_id_list = []
 
-    print(result)
-
     if result[0] != "Error, movie not found in the dataset":
         for movie_name in result:
             movie_id_list.append(posters[movie_name])
-
-        print(movie_id_list)
         poster = get_poster(movie_id_list)
-        print("Postercito:",poster)
 
     else:
         poster = ["https://pbs.twimg.com/media/FyOunJ_WYAAXBwX?format=jpg&name=small"]
