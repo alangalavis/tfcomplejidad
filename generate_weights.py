@@ -21,7 +21,7 @@ indices = pd.Series(df_movies.index, index = df_movies['id']).drop_duplicates()
 
 columna_lista = df_movies['vote_average'].astype(float).tolist()
 
-def generate_overview_recomendations(id, cosine_sim = cosine_sim, cont = 0):
+def generate_overview_recommendations(id, cosine_sim = cosine_sim, cont = 0):
     lis = []
     lista = []
     idx = indices[id]
@@ -41,13 +41,13 @@ def generate_overview_recomendations(id, cosine_sim = cosine_sim, cont = 0):
         lis.append(lista)
     return lis
 
-def get_recomendations_overview():
+def get_recommendations_overview():
     file = open("edges_list_overview.csv", "a", newline='')
     writer = csv.writer(file)
     
     writer.writerow(headers)
     for i in range(4449):
-        liston = generate_overview_recomendations(i)
+        liston = generate_overview_recommendations(i)
         writer.writerows(liston)
     file.close()
         
@@ -57,9 +57,9 @@ def overview_is_empty():
 
 def generate_overview():
     if os.path.exists("edges_list_overview.csv") is False:
-        get_recomendations_overview()
+        get_recommendations_overview()
     elif overview_is_empty():
-        get_recomendations_overview()
+        get_recommendations_overview()
 
 #Generos
 def obtener_ids_por_elemento(input_str):
