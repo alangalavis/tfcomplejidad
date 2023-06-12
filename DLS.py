@@ -31,10 +31,10 @@ def dls(G, s, L, qty): #añadir parametro
   #Verificar si el número es mayor que los presentes en la lista y si es append, al final ordeno
   
   def _dls(u, L):
-    if L > 0 and not visited[u]:
+     if L > 0 and not visited[u]:
       visited[u] = True
       for v, w in G[u]:
-        if not visited[v]:
+         if not visited[v]:
           cost[v] = w
           path[v] = u
           tupla = (v, w)
