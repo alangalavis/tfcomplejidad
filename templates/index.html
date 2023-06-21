@@ -26,7 +26,7 @@
     </section>
 
     <section class="right">
-        <img class="separated shadow" src="{{url_for('static', filename='images/5250.jpg')}}" alt="Hero illustration"/>
+        <img class="separated shadow" src="{{url_for('static', filename='images/5250.jpg')}}" alt="Hero illustration" href="http://www.freepik.com"/>
     </section>
 </div>
 
@@ -36,14 +36,19 @@
         <!-- 1.1. Type the name of a movie to take as a reference -->
         <div class="filter new_section">
             <section class="left">
-                <h2 class="separated">What do you want to watch?</h2>
+                <h2 class="separated">Type a movie to get started</h2>
                 <p class="separated lighter">Type on the searchbar the name of a movie you like, the site will take that information as a starting point of reference</p>
             </section>
 
-            <section class="right">
-                <input class="searchbar separated" type="text" name="movieref" placeholder=" Type here" required>
+            <section class="right autocomplete">
+                <input class="separated searchbar" type="text" name="movieref" id="searchbar" placeholder=" Type here" required autocomplete="off">
+                <script>
+                    autocomplete();
+                </script>
             </section>
         </div>
+
+
 
         <!-- 1.2. Filter movies by-->
         <div class="filter new_section">
@@ -87,4 +92,5 @@
         
     </form>
 </div>
+
 {% endblock %}

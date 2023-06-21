@@ -127,6 +127,34 @@ header {
   height: 75px;
 }
 
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid var(--inactive_color);
+  border-radius: 1rem;
+  background-color: var(--secondary_color);
+  z-index: 99;
+  max-width: 100%;
+  min-width: 465px;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+
+
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: var(--inactive_color);
+  border-radius: 1rem;
+}
+
+
 /*================================================
 1. What do you want to watch?
 ================================================*/
@@ -186,6 +214,7 @@ header {
   padding: 1rem;
   border: 0;
   border-radius: 1.6rem;
+  margin-bottom: 0;
 }
 
 /*================================================
@@ -304,6 +333,7 @@ div .gallery {
   text-align: center;
   overflow: hidden;
   max-width: 250px;
+  height: 475px;
 }
 
 div .gallery img {
@@ -315,7 +345,7 @@ div .gallery img {
 
 div .desc {
   padding: 0 15px;
-  padding-bottom: 15px;
+  padding-bottom: 0;
   text-align: center;
 }
 

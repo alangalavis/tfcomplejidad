@@ -83,11 +83,12 @@ def generate_genre_recomendations(id, id_genres, cont = 0):
     lis = []
     listita=[]
     for i in id_genres:
+        i = i * 1.15
         listita=[id,cont,i+columna_lista[cont]]
         if id == cont:
             cont += 1
             continue
-        if (i+columna_lista[cont]) <= np.float64(7.5):
+        if (i+columna_lista[cont]) <= np.float64(8):
             cont +=1
             continue
         cont += 1

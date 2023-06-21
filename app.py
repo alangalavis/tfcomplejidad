@@ -63,6 +63,8 @@ def output():
     else:
         poster = ["https://pbs.twimg.com/media/FyOunJ_WYAAXBwX?format=jpg&name=small"]
 
+    print(poster)
+
     return render_template('output.html', movieRefName = formData['movieReference'], 
                            movieFilter = formData['movieSelectedFilter'],
                            movieRecAmount = formData['movieRecommendationAmount'],
