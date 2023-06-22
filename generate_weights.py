@@ -83,12 +83,11 @@ def generate_genre_recomendations(id, id_genres, cont = 0):
     lis = []
     listita=[]
     for i in id_genres:
-        i = i * 1.15
         listita=[id,cont,i+columna_lista[cont]]
         if id == cont:
             cont += 1
             continue
-        if (i+columna_lista[cont]) <= np.float64(8):
+        if i <= np.float64(2.0):
             cont +=1
             continue
         cont += 1
@@ -98,7 +97,7 @@ def generate_genre_recomendations(id, id_genres, cont = 0):
 def crear_listas_ids_genero(resultados_genero):
     id_genres = []
     for i in range(4449):   
-        id_genres.append([sum(valor_PC in otra_lista_PC for valor_PC in resultados_genero[i]) for otra_lista_PC in resultados_genero[1:]])
+        id_genres.append([sum(valor_genero in otra_lista_genero for valor_genero in resultados_genero[i]) for otra_lista_genero in resultados_genero[0:]])
     return id_genres
 
 def get_recomendations_genre():
@@ -108,7 +107,6 @@ def get_recomendations_genre():
     writer2 = csv.writer(file2)
 
     writer2.writerow(headers)
-
     for i in range(4449):
         liston2 = generate_genre_recomendations(i, codigos_genero[i])
         writer2.writerows(liston2)
@@ -152,7 +150,7 @@ def generate_PC_recomendations(id, ids_PC, cont = 0):
         if id == cont:
             cont += 1
             continue
-        if (i+columna_lista[cont]) <= np.float64(7.5):
+        if i <= 0:
             cont +=1
             continue
         cont += 1
@@ -162,7 +160,7 @@ def generate_PC_recomendations(id, ids_PC, cont = 0):
 def crear_listas_ids_PC(resultados_PC):
     id_PC = []
     for i in range(4449):   
-        id_PC.append([sum(valor_PC in otra_lista_PC for valor_PC in resultados_PC[i]) for otra_lista_PC in resultados_PC[1:]])
+        id_PC.append([sum(valor_PC in otra_lista_PC for valor_PC in resultados_PC[i]) for otra_lista_PC in resultados_PC[0:]])
     return id_PC
 
 def get_recomendations_PC():
