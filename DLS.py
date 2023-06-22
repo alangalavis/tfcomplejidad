@@ -122,9 +122,9 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
     return movie_list
   
 
-def drawGraph(L, filename="graph", quantity=None):
+def drawGraph(L, filename="static/images/graph", quantity=None):
     if os.path.exists(filename):
-      os.remove(filename)
+       os.remove(filename)
     
     graph = gv.Digraph("G")
     graph.attr('graph', layout='sfdp')
@@ -147,7 +147,9 @@ def drawGraph(L, filename="graph", quantity=None):
     for node in nodes:
         graph.node(str(node), label=str(node))
 
-    graph.render(filename, format= "png")
+
+    os.environ["PATH"] += os.pathsep + 'C:\Program Files\Graphviz\bin'  # Reemplaza la ruta con la ubicación real de Graphviz en tu sistema
+    return graph.render(filename, format= "png")
 
     
 def createSubgraph(graph, source_node, path=[]):
