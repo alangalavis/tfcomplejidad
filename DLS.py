@@ -25,6 +25,8 @@ def addValue(lista, n, qty):
 
 def dls(G, s, L, qty): 
   n = len(G)
+  print(n)
+  n = 4446
   visited = [False]*n
   path = [None]*n
   cost = [float('inf')]*n
@@ -49,7 +51,7 @@ def dls(G, s, L, qty):
 def createGraphFromCSV(csv_file):
     with open(csv_file, newline='') as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # Saltar la primera línea (encabezados)
+        next(reader)  # Saltar la primera lÃ­nea (encabezados)
         graph = {}
         for row in reader:
             source = int(row[0])
@@ -58,6 +60,9 @@ def createGraphFromCSV(csv_file):
 
             if source not in graph:
                 graph[source] = []
+            if target not in graph:
+               graph[target] = []
+              #genrar los que no estan en vacio
             graph[source].append((target, weight))
 
     return graph
@@ -104,9 +109,8 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
   except:
     index = -1
     return ["Error, movie not found in the dataset"]
-  output_filename = "teoria.png"
   if movieSelectedFilter == "studio":
-    movie_list, path = genre_recomendation(index, movieRecommendationAmount, movie_dataset)
+    movie_list, path = PC_recomendation(index, movieRecommendationAmount, movie_dataset)
     subgrafo = createSubgraph(G_studio, index)
     drawGraph(subgrafo, quantity=movieRecommendationAmount)
     return movie_list
