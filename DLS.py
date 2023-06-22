@@ -127,12 +127,10 @@ def filter_selector(movieReference, movieSelectedFilter, movieRecommendationAmou
   
 
 def drawGraph(L, filename="static/images/graph", quantity=None):
-   return
-"""
     if os.path.exists(filename):
        os.remove(filename)
     
-    graph = gv.Digraph("G")
+    graph = gv.Graph("G")
     graph.attr('graph', layout='sfdp')
     graph.attr('node', color='orangered', fontcolor='mediumslateblue', fontname='monospace', fontsize='8', height='0.1', width='0.1')
     graph.attr('edge', color='gray', fontname='monospace', fontsize='8')
@@ -153,10 +151,10 @@ def drawGraph(L, filename="static/images/graph", quantity=None):
     for node in nodes:
         graph.node(str(node), label=str(node))
 
-
-    os.environ["PATH"] += os.pathsep + 'C:\Program Files\Graphviz\bin'  # Reemplaza la ruta con la ubicación real de Graphviz en tu sistema
-    return graph.render(filename, format= "png")
-"""
+    try:
+      return graph.render(filename, format= "png")
+    except:
+       return
     
 def createSubgraph(graph, source_node, path=[]):
     subgraph = []
