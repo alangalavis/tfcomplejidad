@@ -375,6 +375,11 @@ div .desc {
 3. About
 ================================================*/
 
+.algorithm {
+  background-color: var(--primary_color);
+  padding: 50px 0;
+}
+
 .about {
   display: flex;
   justify-content: center;
