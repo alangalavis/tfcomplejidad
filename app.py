@@ -54,21 +54,21 @@ def output():
     movie_minus = movie_minus.lower()
     result = DLS.filter_selector(movie_minus, formData['movieSelectedFilter'], formData['movieRecommendationAmount'], movie_dataset_minusculas)
     movie_id_list = []
-
     if result[0] != "Error, movie not found in the dataset":
         for movie_name in result:
             movie_id_list.append(posters[movie_name])
         poster = get_poster(movie_id_list)
-
     else:
         poster = ["https://pbs.twimg.com/media/FyOunJ_WYAAXBwX?format=jpg&name=small"]
 
-    print(poster)
-
     return render_template('output.html', movieRefName = formData['movieReference'], 
-                           movieFilter = formData['movieSelectedFilter'],
-                           movieRecAmount = formData['movieRecommendationAmount'],
-                           recommendation_list = result, poster_list = poster)
+                            movieFilter = formData['movieSelectedFilter'],
+                            movieRecAmount = formData['movieRecommendationAmount'],
+                            recommendation_list = result, poster_list = poster)
+
+@app.route('/algorithm')
+def algorithm():
+    return render_template('algorithm.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

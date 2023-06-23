@@ -55,6 +55,14 @@ button {
   filter: drop-shadow(0 0.3rem 1mm rgb(165, 165, 165));
 }
 
+.center {
+  text-align: center;
+}
+
+.justify {
+  text-align: justify;
+}
+
 h1 {
   font-size: 3.5rem;
 }
@@ -69,6 +77,11 @@ p {
   color: var(--text_color_secondary);
 }
 
+a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: inherit;
+}
 
 header {
   position: fixed;
@@ -85,7 +98,6 @@ header {
   text-align:center;
 }
 
-/*Container with zero padding */
 .header-box {
   display: flex;
   padding: 20px 50px;
@@ -127,34 +139,6 @@ header {
   height: 75px;
 }
 
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid var(--inactive_color);
-  border-radius: 1rem;
-  background-color: var(--secondary_color);
-  z-index: 99;
-  max-width: 100%;
-  min-width: 465px;
-}
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-
-
-}
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: var(--inactive_color);
-  border-radius: 1rem;
-}
-
-
 /*================================================
 1. What do you want to watch?
 ================================================*/
@@ -185,6 +169,10 @@ header {
   flex: 1;
 }
 
+.about div {
+  flex: 1;
+}
+
 .left, .right {
   padding: 0 2rem;
 }
@@ -195,6 +183,7 @@ header {
   min-width: 465px;
   border-radius: 0.7rem;
 }
+
 
 /*================================================
 1.1. Type the name of a movie to take as a reference
@@ -215,6 +204,31 @@ header {
   border: 0;
   border-radius: 1.6rem;
   margin-bottom: 0;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid var(--inactive_color);
+  border-radius: 1rem;
+  background-color: var(--secondary_color);
+  z-index: 99;
+  max-width: 100%;
+  min-width: 465px;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+  background-color: var(--inactive_color);
+  border-radius: 1rem;
 }
 
 /*================================================
@@ -282,10 +296,6 @@ label {
 /*================================================
 1.4. Submit
 ================================================*/
-
-.center {
-  text-align: center;
-}
 
 .recommend {
   cursor: pointer;
@@ -361,24 +371,33 @@ div .desc {
   width: 19.99999%;
 }
 
-@media only screen and (max-width: 700px) {
-  .responsive {
-    text-align: center;
-    width: 49.99999%;
-    margin: 6px 0;
-  }
+/*================================================
+3. About
+================================================*/
+
+.algorithm {
+  background-color: var(--primary_color);
+  padding: 50px 0;
 }
 
-@media only screen and (max-width: 500px) {
-  .responsive {
-    text-align: center;
-    width: 100%;
-  }
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 300px;
+  padding-top: 50px;
+  overflow: hidden;
 }
 
+.graph {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+}
 
 /*================================================
-3. Media queries
+4. Media queries
 ================================================*/
 
 @media screen and (max-width: 1000px) {
@@ -444,5 +463,24 @@ div .desc {
 
   .hero .right {
     display: none;
+  }
+
+  .about {
+    padding: 10px 75px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    text-align: center;
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    text-align: center;
+    width: 100%;
   }
 }
