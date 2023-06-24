@@ -23,10 +23,8 @@ def addValue(lista, n, qty):
     lista.append(n)
   
 
-def dls(G, s, L, qty): 
-  n = len(G)
+def dls(G, n, s, L, qty): 
   print(n)
-  n = 4446
   visited = [False]*n
   path = [None]*n
   cost = [float('inf')]*n
@@ -64,8 +62,7 @@ def createGraphFromCSV(csv_file):
                graph[target] = []
               #genrar los que no estan en vacio
             graph[source].append((target, weight))
-
-    return graph
+    return graph, source
 
 def return_movies_titles(lista1, lista2):
   lista = []
@@ -74,31 +71,31 @@ def return_movies_titles(lista1, lista2):
   return lista
 
 if os.path.exists("edges_list_overview.csv") is True:    
-  G_overview = createGraphFromCSV("edges_list_overview.csv") #validar esto
+  G_overview, size = createGraphFromCSV("edges_list_overview.csv") #validar esto
   
 if os.path.exists("genres_list.csv") is True:    
-  G_genre = createGraphFromCSV("genres_list.csv") #validar esto
+  G_genre, size = createGraphFromCSV("genres_list.csv") #validar esto
 
 if os.path.exists("PC_list.csv") is True:    
-  G_studio = createGraphFromCSV("PC_list.csv") #validar esto
+  G_studio, size = createGraphFromCSV("PC_list.csv") #validar esto
 
 def overview_recomendation(index, qty, peliculas_lista):
     if index != -1:
-        path, lista = dls(G_overview, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        path, lista = dls(G_overview, size, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
         movies_list = return_movies_titles(lista, peliculas_lista)
         return movies_list, path
 
 def genre_recomendation(index, qty, peliculas_lista):
     if index != -1:
-        path, lista = dls(G_genre, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        path, lista = dls(G_genre, size, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
         movies_list = return_movies_titles(lista, peliculas_lista)
         return movies_list, path
 
 def PC_recomendation(index, qty, peliculas_lista):
     if index != -1:
-        path, lista = dls(G_studio, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
+        path, lista = dls(G_studio, size, index, 1, qty) #no retornar ni peso ni costo solo dejarlo como comentario para que se vea en la expo
         lista.sort(key=return_weight, reverse=True)
         movies_list = return_movies_titles(lista, peliculas_lista)
         return movies_list, path
